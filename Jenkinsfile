@@ -6,8 +6,8 @@ pipeline{
         ansiColor('xterm')
     }
     parameters{
-        string(name: 'Imageversion', defaultValue: '', description: 'Please enter Image version')
-        choice(name: 'Deploy', choices: ['dev', 'qa', 'prod'], description: 'Pick Environment')
+        string(name: 'appVersion', defaultValue: '', description: 'Please enter Image version')
+        choice(name: 'deploy', choices: ['dev', 'qa', 'prod'], description: 'Pick Environment')
 
     }
     stages{
