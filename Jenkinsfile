@@ -17,7 +17,8 @@ pipeline{
                  script{
                     sh """
                     aws eks update-kubeconfig --name roboshop-dev --region us-east-1
-                    kubectl get nodes
+                    sed -i "s/IMAGEVERSION/"${params.appVersion}"/g values.yaml
+                    helm upgrade --install nginx -f values.yaml
                     """
                   }
                 }
