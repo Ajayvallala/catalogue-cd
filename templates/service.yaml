@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+ name: nginx-service
+spec:
+  type: {{ .Values.service.type }}
+  selector:
+   app: web
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: {{ .Values.service.targetPort }}
