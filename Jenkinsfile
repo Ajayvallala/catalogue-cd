@@ -36,7 +36,7 @@ pipeline{
                 script{
                     withAWS(credentials: 'aws-creds', region: "${REGION}"){
 
-                    def deploymentStatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --timeout=30s -n $PROJECT || echo FAILED").trim()
+                    def deploymentStatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --timeout=10s -n $PROJECT || echo FAILED").trim()
                     if (deploymentStatus.contains("successfully rolled out")) {
                         echo "Deployment is success"
                     }
@@ -44,7 +44,7 @@ pipeline{
                         sh """
                             helm rollback $COMPONENT
                         """
-                        def rollbackStatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --timeout=30s -n $PROJECT || echo FAILED").trim()
+                        def rollbackStatus = sh(returnStdout: true, script: "kubectl rollout status deployment/catalogue --timeout=10s -n $PROJECT || echo FAILED").trim()
                         if (rollbackStatus.contains("successfully rolled out")) {
                             error "Deployment is Failure, Rollback Success"
                         }
