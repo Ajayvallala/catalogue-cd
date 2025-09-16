@@ -1,7 +1,0 @@
-deployment:
- replicas: 3
- imageversion: IMAGEVERSION
-
-service:
- type: LoadBalancer
- targetPort: 80
