@@ -2,9 +2,6 @@ pipeline{
     agent{
         label 'AGENT-1'
     }
-    options {
-        ansiColor('xterm')
-    }
     environment{
         REGION="us-east-1"
         PROJECT="roboshop"
