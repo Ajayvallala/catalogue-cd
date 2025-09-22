@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default # The Argo CD Project this application belongs to
   source:
-    repoURL: https://github.com/Ajayvallala/argo-cd.git # URL of the Git repository
+    repoURL: https://github.com/Ajayvallala/catalogue-cd.git # URL of the Git repository
     targetRevision: main # The specific branch, tag, or commit to sync from
     path: . # The path within the repository where the application manifests are located
     helm:
